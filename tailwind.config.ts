@@ -1,3 +1,4 @@
+import { Mulish } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -8,13 +9,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        customBlue: '#0A6DFC',
+        bgform: "#F5F7F8"
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        outfit: ["Outfit", "sans-serif"], 
+        Mulish: ["Mulish", "sans-serif"],
+      },
     },
   },
   plugins: [],
 };
+
 export default config;

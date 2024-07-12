@@ -1,113 +1,94 @@
-import Image from "next/image";
+import Image from 'next/image';
+import FormData from '@/components/formData'; 
+
+
+interface Benefit {
+  title: string;
+  description: string;
+  image: string;
+}
 
 export default function Home() {
+  const benefits: Benefit[] = [
+    {
+      title: 'Team work',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.',
+      image: '/team.png',
+    },
+    {
+      title: 'Secured Future',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.',
+      image: '/secrdfts.png',
+    },
+    {
+      title: 'Learning and Opportunity',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.',
+      image: '/learning.png',
+    },
+    {
+      title: 'Upgrade Skills',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.',
+      image: '/upgradeskills.png',
+    },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <section
+        className="section bg-cover mt-6 w-full relative"
+        style={{
+          height: '450px',
+          backgroundImage: `url('/joinus.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+      <div className="max-w-6xl mx-auto absolute inset-0 flex flex-col items-start justify-center py-20 ">
+        <div className="max-w-md space-y-4">
+          <h1 className=" text-white text-5xl px-3 sm:px-0 sm:text-7xl font-light leading-tight">Join Us!</h1>
+          <p className="text-white font-regular font-outfit sm:text-border text-xl sm:text-2xl px-3 sm:px-0 ">Find the job opportunity that is right for you, get to know us better, and learn about everything we have to offer. We look forward to welcoming you to the Schoenherr team!</p>
+          <div className="space-x-4 p-3 sm:p-0">
+            <button className="bg-transparent border-2 border-white hover:bg-blue-700 text-white font-regular py-2 px-4 uppercase">Get in Touch</button>
+            <button className="bg-customBlue text-white font-regular py-2 px-4 uppercase">Apply Now</button>  
+          </div>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      </section>
+      
+    <div className="max-w-7xl mx-auto">
+      
+      <div className="grid px-6 py-6 w-full sm:max-w-6xl sm:px-4 sm:mx-10 sm:my-[80px] sm:grid-cols-1 sm:gap-4 md:grid-cols-2 md:gap-8">
+        <div>
+          <h4 className="text-blue-600 font-medium font-Mulish capitalize text-[18px]">BENEFITS</h4>
+          <div >
+            <p className="text-3xl  md:text-5xl sm:text-3xl font-Mulish sm:leading-[55px] ">
+            Why you should <a href="#" className="text-sky-600">Join</a> Our Awesome Team
+            </p>
+            <p className='mt-2 md:mt-5 sm:mt-4 font-outfit md:text-2xl sm:text-xl'>
+              We want you to feel at home when you are working at Liqueous & for that we have curated a great set of benefits for you.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-1 sm:grid-cols-2 md:gap-4 ">
+            {benefits.map((benefit, key) => (
+              <div className="card h-auto sm:h-[224px]  w-[209px]" key={key}>
+                <div className="card-image bg-sky-600 rounded h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[74px] md:w-[74px]  flex items-center justify-center">
+                  <Image className="w-6 h-6 sm:w-[30px] sm:h-[30px] md:w-[38px] md:h-[38px] object-cover" src={benefit.image} alt={benefit.title} width={74} height={74} />
+                </div>
+                <div className="card-content">
+                  <h4 className="font-medium sm:font-regular font-Mulish text-xl md:text-2xl">{benefit.title}</h4>
+                  <p className='max-w-56 max-h-full sm:w-[150px] md:h-[100px]  font-light font-outfit text-sm overflow-hidden'>{benefit.description}</p>
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
+    
+    <section className='w-full h-[850px] flex flex-col justify-center items-center bg-bgform'>
+    
+     <FormData/>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </section>
+  </div>
+</>
   );
 }
