@@ -68,9 +68,9 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="grid gap-1 sm:grid-cols-2 md:gap-4 ">
+        <div className="grid gap-1 my-4 sm:my-0 sm:grid-cols-2 md:gap-4 ">
             {benefits.map((benefit, key) => (
-              <div className="card h-auto sm:h-[224px]  w-[209px]" key={key}>
+              <div className="card my-2 h-auto sm:h-[224px]  w-[209px]" key={key}>
                 <div className="card-image bg-sky-600 rounded h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[74px] md:w-[74px]  flex items-center justify-center">
                   <Image className="w-6 h-6 sm:w-[30px] sm:h-[30px] md:w-[38px] md:h-[38px] object-cover" src={benefit.image} alt={benefit.title} width={74} height={74} />
                 </div>
